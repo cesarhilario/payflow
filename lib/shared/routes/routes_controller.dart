@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/modules/home/home_page.dart';
-import 'package:payflow/modules/login/login_page.dart';
 
 class RoutesController {
   late BuildContext _context;
@@ -8,13 +6,11 @@ class RoutesController {
   get context => _context;
 
   void goToHomepage() {
-    Navigator.push(
-        _context, MaterialPageRoute(builder: (context) => HomePage()));
+    Navigator.pushReplacementNamed(_context, "/home");
   }
 
   void goToLoginPage() {
-    Navigator.push(
-        _context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.pushReplacementNamed(_context, "/login");
   }
 
   void setContext(BuildContext context) {
