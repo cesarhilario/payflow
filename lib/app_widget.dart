@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/modules/home/home_page.dart';
 import 'package:payflow/modules/login/login_page.dart';
-import 'package:payflow/modules/splash/splash_page.dart';
 import 'shared/themes/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,8 +11,11 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'PayFlow',
       theme: ThemeData(
-        primaryColor: AppColors.primary,
-      ),
+          scaffoldBackgroundColor: AppColors.background,
+          primaryColor: AppColors.primary,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.primary,
+          )),
       home: const LoginPage(),
     );
   }
