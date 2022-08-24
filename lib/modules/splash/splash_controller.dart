@@ -10,8 +10,8 @@ class SplashController {
 
     routerController.setContext(context);
 
-    authController.hasUserOnSharedPreferences().then((value) => {
-          if (value)
+    authController.hasUserOnSharedPreferences().then((isAuthenticated) => {
+          if (isAuthenticated)
             {routerController.goToHomepage()}
           else
             {routerController.goToLoginPage()}
