@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 
 class RoutesController {
-  late BuildContext _context;
+  late BuildContext mContext;
+  BuildContext get context => mContext;
+  set context(BuildContext context) => mContext = context;
 
-  get context => _context;
+  void setContext(BuildContext context) {
+    mContext = context;
+  }
 
   void goToHomepage() {
-    Navigator.pushReplacementNamed(_context, "/home");
+    Navigator.pushReplacementNamed(mContext, "/home");
   }
 
   void goToLoginPage() {
-    Navigator.pushReplacementNamed(_context, "/login");
+    Navigator.pushReplacementNamed(mContext, "/login");
   }
 
-  void setContext(BuildContext context) {
-    _context = context;
+  void goToBarcodeScannerPage() {
+    Navigator.pushNamed(mContext, "/barcode_scanner");
+  }
+
+  void goToInsertBilletPage() {
+    Navigator.pushNamed(mContext, "/insert_billet");
   }
 }

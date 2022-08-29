@@ -29,8 +29,6 @@ class AuthController {
     // TODO: REMOVE THIS SHIT QUICKLY
     await Future.delayed(const Duration(milliseconds: 700));
 
-    print(sharedPreferences.containsKey("user"));
-
     if (sharedPreferences.containsKey("user")) {
       final json = sharedPreferences.getString("user");
       if (json != null) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/shared/routes/routes_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 
@@ -12,6 +13,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final homeController = HomeController();
+  final routesController = RoutesController();
+
   final pages = [
     Container(
       color: Colors.red,
@@ -21,6 +24,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    routesController.setContext(context);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(152),
@@ -30,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           child: Center(
             child: ListTile(
               title: Text.rich(TextSpan(
-                  text: "Olá,",
+                  text: "Olá, ",
                   style: AppTextStyles.titleRegular,
                   children: [
                     TextSpan(
@@ -64,19 +69,18 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.home),
             color: AppColors.primary,
           ),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              width: 56,
-              height: 56,
-              decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(5)),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.add_box_outlined),
-                color: AppColors.background,
-              ),
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(5)),
+            child: IconButton(
+              onPressed: () {
+                routesController.goToBarcodeScannerPage();
+              },
+              icon: const Icon(Icons.add_box_outlined),
+              color: AppColors.background,
             ),
           ),
           IconButton(
